@@ -1,0 +1,214 @@
+.center {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5rem;
+    font-size: 20px;
+    
+}
+* {
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #d6d6d6;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.boxadresses {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin-top: 1rem;
+    border : 5px solid black;
+    margin-left: 20.3%;
+    border-radius: 6px;
+}
+
+button {
+    background-color: #a5a5a5;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    border: 4px solid #000000;
+    border-radius: 6px ;
+    text-align: center;
+    font-size: 20px;
+}
+input{
+    width: 30%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 8px ;
+    text-align: center;
+}
+p {
+    font-size: 20px;
+    margin: 1rem;
+}
+#boxzone{
+    width: 60%;
+    margin-left: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 5px solid black;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 1.7rem;
+}
+
+
+#boxzone #boxnh {
+    display: flex;
+    flex-direction: row;
+    border: 5px solid black;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 90%;
+
+}
+#boxzone button{
+    margin-right: 3%;
+}
+#boxnh div {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#boxnh div input {
+    width: 100%;
+
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 5px solid #000000;
+    box-sizing: border-box;
+    border-radius: 8px ;
+    text-align: center;
+    font-size: 20px;
+}
+#boxconf {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    width: 80%;
+    padding-left: 7%;
+}
+#content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#supprimer {
+    background-color: #b0aeae;
+    color: white;
+    padding: 0 0;
+    margin: 8px 0;
+    cursor: pointer;
+    width: 5vh;
+    height: 5vh;
+    border: 4px solid #000000;
+    border-radius: 6px ;
+    text-align: center;
+    font-size: 30px;
+    align-items: center;
+    padding-bottom: 0.4%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#envoyer {
+    margin-left:40% ;
+}
+#resultbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    width: 90%;
+    border: 5px solid black;
+    border-radius: 10px;
+    margin-left:4.5%;
+    padding: 1rem;
+}
+#resultbox div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    height: 60px;
+}
+#resultbox div p {
+    width: 100%;
+    height: 60px;
+    display: inline-block;
+    border: 5px solid #000000;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 20px;
+    text-align: left;
+    font-size: 18px;
+    padding-left: 1.7rem;
+    padding-top: 0.5rem;
+
+
+}
+.adresse{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 60%;
+    height: auto;
+
+}
+#inputcidr{
+    width: 5rem;
+    margin-top: 1rem;
+    display: flex;
+    text-align: start;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+.origin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+}
+.adress{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    font-size: 1.5rem;
+}
+#morigin{
+    width: 100%;
+}

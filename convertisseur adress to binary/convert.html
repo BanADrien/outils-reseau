@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="convert.css">
+</head>
+
+<body>
+    <h1>Convertisseur : adresse vers binaire</h1>
+    <p><a href="../index.html">Découpage VLSM</a></p>
+    <p><a href="../convert210168/index.html">Convertisseur 2, 10, 16, 8</a></p>
+    <p>convertisseur adresse vers binaire</p>
+    <select name="" id="ordre">
+        <option value="binaire">convertir adresse en binaire</option>
+        <option value="adresse">convertir binaire en adresse décimal</option>
+    </select>
+    <div class="divinput">
+        <input type="text" id="val" placeholder="ex : 192.168.0.0">
+        <input type="text" id="cidr" value="/">
+    </div>
+    <div id="resultbox">
+        <p id="resultat">Resultat</p>
+        <p id="resultcidr">cidr</p>
+    </div>
+    <button id="valider">Convertir</button>
+    <script src="convert.js"></script>
+</body>
+
+</html>
