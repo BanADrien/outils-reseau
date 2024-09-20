@@ -23,7 +23,7 @@ function formatInput(input) {
   groups = groups.slice(0, 4);
 
   if (groups.length === 4 && groups[3].charAt(0) === '0') {
-      groups[3] = '0';
+    groups[3] = '0';
   }
 
   // Ajouter un point après un '0' si c'est le premier caractère du groupe
@@ -35,7 +35,7 @@ function formatInput(input) {
   // Si la longueur de la valeur dépasse 12 (quatre groupes de trois chiffres)
   // et si le dernier caractère est un point, supprimez-le
   if (value.length > 12 && value.charAt(value.length - 1) === '.') {
-      value = value.substring(0, value.length - 1);
+    value = value.substring(0, value.length - 1);
   }
   input.value = value;
 }
@@ -47,15 +47,18 @@ function cidrtobinary(ordreValue) {
 
   if (ordreValue == 'binaire') {
     let cidrvalue = cidr.value.split('/')[1];
-    let cidrbinaire = '';
-    for (let i = 0; i < cidrvalue; i++) {
-      cidrbinaire += '1';
+    if (cidrvalue !== '') {
+
+      let cidrbinaire = '';
+      for (let i = 0; i < cidrvalue; i++) {
+        cidrbinaire += '1';
+      }
+      for (let i = cidrvalue; i < 32; i++) {
+        cidrbinaire += '0';
+      }
+      cidrbinaire = cidrbinaire.match(/.{1,8}/g);
+      resultcidr.innerHTML = "CIDR : " + cidrbinaire.join('.');
     }
-    for (let i = cidrvalue; i < 32; i++) {
-      cidrbinaire += '0';
-    }
-    cidrbinaire = cidrbinaire.match(/.{1,8}/g);
-    resultcidr.innerHTML = cidrbinaire.join('.');
   }
 }
 function calcul(value, ordreValue) {
@@ -64,7 +67,7 @@ function calcul(value, ordreValue) {
     let completeoctet = 0;
     completeoctet = value.map(function (val) {
       return parseInt(val, 10).toString(2);
-      
+
 
     })
 
@@ -74,7 +77,7 @@ function calcul(value, ordreValue) {
         completeoctet[i] = completeoctet[i].padStart(8, '0');
       }
     }
-    result.innerHTML = completeoctet.join('.');
+    result.innerHTML = "Adresse : " + completeoctet.join('.');
 
 
 
@@ -88,20 +91,20 @@ function calcul(value, ordreValue) {
 
 }
 cidr.addEventListener('input', () => {
-    
+
   // Remplacer tous les caractères non numériques ou "/" par une chaîne vide
   cidr.value = cidr.value.replace(/[^0-9/]/g, '');
 
   // Mettre à jour la valeur de l'entrée avec la valeur filtrée
 
   if (cidr.value.length > 3) {
-      cidr.value = cidr.value.substring(0, 3);
+    cidr.value = cidr.value.substring(0, 3);
   }
-  if (cidr.value[1] + cidr.value[2] > '32'|| cidr.value[2] === '/') {
-      cidr.value = '/' + cidr.value[1];
+  if (cidr.value[1] + cidr.value[2] > '32' || cidr.value[2] === '/') {
+    cidr.value = '/' + cidr.value[1];
   }
   if (cidr.value.length === 0 || cidr.value[0] != '/' || cidr.value[1] === '0' || cidr.value[1] === '/') {
-      cidr.value = '/';
+    cidr.value = '/';
   }
 });
 ordre.addEventListener('change', function () {
@@ -118,7 +121,7 @@ ordre.addEventListener('change', function () {
   resultbox.style.height = '0';
 
 
-  
+
 
 
   setTimeout(() => {
@@ -139,7 +142,7 @@ valider.addEventListener('click', function () {
     setTimeout(() => {
       resultbox.style.height = '150px';
       calcul(value, ordreValue);
-      cidrtobinary(ordreValue);
+        cidrtobinary(ordreValue);
     }, 500);
   } else {
     resultbox.style.height = '150px';
