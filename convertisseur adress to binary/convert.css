@@ -40,11 +40,12 @@ nav a {
     box-shadow: inset 1px 1px 5px #010101;
     z-index: -1;
     background-color: rgb(255, 255, 255);
-    text-align: end;
-    justify-content: start;
+    text-align: center;
     overflow: hidden;
     transition: height 0.35s ease;
     margin-bottom: 1rem;
+
+
 }
 #resultbox p {
     margin-right: 3rem;

@@ -9,35 +9,43 @@ let resultcidr = document.getElementById('resultcidr');
 
 
 function formatInput(input) {
-  // Supprimer tous les caractères non numériques et non points
-  let value = input.value.replace(/[^\d.]/g, '');
+  if (ordre.value === 'binaire') {
+    // Supprimer tous les caractères non numériques et non points
+    let value = input.value.replace(/[^\d.]/g, '');
 
-  // Supprimer les points excédentaires
-  value = value.replace(/\.{2,}/g, '.');
+    // Supprimer les points excédentaires
+    value = value.replace(/\.{2,}/g, '.');
 
-  // Insérer un point après chaque groupe de trois chiffres
-  value = value.replace(/(\d{3})(?=\d)/g, '$1.');
+    // Insérer un point après chaque groupe de trois chiffres
+    value = value.replace(/(\d{3})(?=\d)/g, '$1.');
 
-  // Limiter à quatre groupes de trois chiffres
-  let groups = value.split('.');
-  groups = groups.slice(0, 4);
+    // Limiter à quatre groupes de trois chiffres
+    let groups = value.split('.');
+    groups = groups.slice(0, 4);
 
-  if (groups.length === 4 && groups[3].charAt(0) === '0') {
-    groups[3] = '0';
+    if (groups.length === 4 && groups[3].charAt(0) === '0') {
+      groups[3] = '0';
+    }
+
+    // Ajouter un point après un '0' si c'est le premier caractère du groupe
+    value = groups.join('.').replace(/(?<=^|\.)0(?=\d)/g, '0.');
+
+    // Limiter à quinze caractères (quatre groupes de trois chiffres et trois points)
+    value = value.substring(0, 15);
+
+    // Si la longueur de la valeur dépasse 12 (quatre groupes de trois chiffres)
+    // et si le dernier caractère est un point, supprimez-le
+    if (value.length > 12 && value.charAt(value.length - 1) === '.') {
+      value = value.substring(0, value.length - 1);
+    }
+    input.value = value;
+  } else {
+// mettre un point après chaque groupe de 8 chiffres et limiter à 32 caractères
+    let value = input.value.replace(/[^\d]/g, '');
+    value = value.replace(/(\d{8})(?=\d)/g, '$1.');
+    value = value.substring(0, 35);
+    input.value = value;
   }
-
-  // Ajouter un point après un '0' si c'est le premier caractère du groupe
-  value = groups.join('.').replace(/(?<=^|\.)0(?=\d)/g, '0.');
-
-  // Limiter à quinze caractères (quatre groupes de trois chiffres et trois points)
-  value = value.substring(0, 15);
-
-  // Si la longueur de la valeur dépasse 12 (quatre groupes de trois chiffres)
-  // et si le dernier caractère est un point, supprimez-le
-  if (value.length > 12 && value.charAt(value.length - 1) === '.') {
-    value = value.substring(0, value.length - 1);
-  }
-  input.value = value;
 }
 val.addEventListener('input', function () {
   formatInput(val);
@@ -82,7 +90,8 @@ function calcul(value, ordreValue) {
 
 
   } else if (ordreValue == 'adresse') {
-    result.innerHTML = value.map(function (val) {
+    result.setAttribute('class', 'adresse');
+    result.innerHTML = "resultat: " + value.map(function (val) {
       return parseInt(val, 2);
     }).join('.');
   } else {
@@ -142,7 +151,7 @@ valider.addEventListener('click', function () {
     setTimeout(() => {
       resultbox.style.height = '150px';
       calcul(value, ordreValue);
-        cidrtobinary(ordreValue);
+      cidrtobinary(ordreValue);
     }, 500);
   } else {
     resultbox.style.height = '150px';
