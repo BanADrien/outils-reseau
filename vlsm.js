@@ -168,13 +168,13 @@ function inputbox() {
     listbox.push(boxconf);
     supprimer.addEventListener('click', () => {
         content.removeChild(boxconf);
-    
+
 
         const index = listbox.indexOf(boxconf);
         if (index !== -1) {
-            listbox.splice(index, 1); 
+            listbox.splice(index, 1);
         }
-    
+
 
         for (let i = 0; i < listbox.length; i++) {
             listbox[i].children[0].children[0].children[1].value = 'sous_réseau' + (i + 1);
@@ -312,8 +312,8 @@ valider.addEventListener('click', () => {
         para.style.height = '75px';
         boxzone.style.display = 'none';
         envoyer.style.display = 'block';
-        
-        
+
+
 
 
     }
@@ -343,13 +343,13 @@ envoyer.addEventListener('click', () => {
             return b.children[0].children[1].children[1].value - a.children[0].children[1].children[1].value
         });
         //afficher l'adresse et le cidr d'origine
+        let adressorigin = document.createElement('p');
+        adressorigin.textContent = 'adresse d\'origine : ' + adress.value;
 
+        let cidrorigin = document.createElement('p');
+        cidrorigin.textContent = 'cidr d\'origine :' + inputcidr.value;
         setTimeout(() => {
-            let adressorigin = document.createElement('p');
-            adressorigin.textContent = 'adresse d\'origine : ' + adress.value;
-    
-            let cidrorigin = document.createElement('p');
-            cidrorigin.textContent = 'cidr d\'origine :' + inputcidr.value;
+
             boxzone.appendChild(adressorigin);
             boxzone.appendChild(cidrorigin);
         }, 450);
@@ -483,7 +483,7 @@ envoyer.addEventListener('click', () => {
             setTimeout(() => {
                 boxzone.style.height = '530px';
                 para.style.height = '600px';
-                
+
             }, 500);
             setTimeout(() => {
                 para.style.height = '500px';
@@ -491,10 +491,8 @@ envoyer.addEventListener('click', () => {
                 content.style.display = 'none';
                 buttonadd.style.display = 'none';
                 boxzone.style.display = 'block';
-   
-                
-                resultbox(adressorigin, mask_decimal, premieradress, dernieradress, broadcast, maskval, netname)
             }, 450);
+            resultbox(adressorigin, mask_decimal, premieradress, dernieradress, broadcast, maskval, netname)
             if (plusdereseau) {
                 break
             }
