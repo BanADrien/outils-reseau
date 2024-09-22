@@ -37,7 +37,7 @@ nav a {
     border: 0px solid;
     border-radius: 0px 0px 10px 10px;
     margin-top: -4px;
-    box-shadow: 0px 0px 10px 4px black;
+    box-shadow: inset 1px 1px 5px #010101;
     z-index: -1;
     background-color: rgb(255, 255, 255);
     text-align: end;
@@ -65,7 +65,7 @@ select{
     border-radius: 0px 0px 10px 10px;
     text-align: center;
     font-size: 30px;
-    box-shadow: 0px 0px 8px 3px black;
+    box-shadow:  1px 1px 5px #010101;
 }
 input{
     width: 50%;
@@ -73,7 +73,7 @@ input{
     border-radius: 10px 10px 0px 0px;
     text-align: center;
     font-size: 30px;
-    box-shadow: 0px 0px 10px 4px black;
+    box-shadow: inset 1px 1px 5px #010101;
     margin-left: 24.85%;
 }
 button{
@@ -83,7 +83,7 @@ button{
     font-size: 30px;
     cursor: pointer;
     margin-top: 1rem;
-    box-shadow: 0px 0px 10px 3px black;
+    box-shadow:  1px 1px 5px #010101;
 
 }
 button:hover{
@@ -104,7 +104,7 @@ button:hover{
     border-radius: 10px;
     text-align: center;
     font-size: 30px;
-    box-shadow: 0px 0px 10px 4px black;
+    box-shadow: inset 1px 1px 5px #010101;
     margin-left: 2%;
     text-align: start;
     padding-left: 0.5rem;
