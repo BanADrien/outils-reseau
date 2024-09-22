@@ -1,5 +1,6 @@
 * {
-    box-sizing: border-box; /* Applique border-box à tous les éléments */
+    box-sizing: border-box;
+    /* Applique border-box à tous les éléments */
 }
 
 body {
@@ -9,6 +10,7 @@ body {
     flex-direction: column;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 nav {
     position: fixed;
     display: flex;
@@ -25,10 +27,16 @@ nav {
     top: 0;
     left: 0;
 }
+
 nav a {
     color: white;
     text-decoration: none;
 }
+
+h1 {
+    margin-top: 8vh;
+}
+
 #boxadresses {
     box-shadow: black 0px 0px 10px;
     width: 60%;
@@ -37,6 +45,7 @@ nav a {
     flex-direction: column;
     align-items: center;
 }
+
 .mainbutton {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -49,6 +58,7 @@ nav a {
     border: 0;
     box-shadow: black 0px 0px 10px;
 }
+
 #inputs {
 
     width: 100%;
@@ -61,6 +71,7 @@ nav a {
     transition: height 0.35s ease;
 
 }
+
 .inputligne {
     display: flex;
     margin-top: 2rem;
@@ -72,6 +83,7 @@ nav a {
     font-weight: bold;
 
 }
+
 .inputligne input {
     margin-right: 10px;
     width: 30vw;
@@ -83,6 +95,7 @@ nav a {
     box-shadow: black inset 0px 0px 10px;
     font-size: 1.4rem;
 }
+
 #para {
     margin-top: 3vh;
     box-shadow: black 0px 0px 10px;
@@ -101,11 +114,13 @@ nav a {
     padding-top: 0;
 
 }
-#para #envoyer{
 
-    margin:0  40%;
+#para #envoyer {
+
+    margin: 0 40%;
     margin-top: 2vh;
 }
+
 #boxzone {
     box-shadow: black inset 0px 0px 10px;
     width: 100%;
@@ -124,23 +139,31 @@ nav a {
 
 
 }
+
 #boxzone::-webkit-scrollbar {
-    width: 12px; /* Largeur de la barre de défilement */
+    width: 12px;
+    /* Largeur de la barre de défilement */
 }
 
 #boxzone::-webkit-scrollbar-track {
-    background: transparent; /* Fond de la piste invisible */
-    border-radius: 10px; /* Coins arrondis */
+    background: transparent;
+    /* Fond de la piste invisible */
+    border-radius: 10px;
+    /* Coins arrondis */
 }
 
 #boxzone::-webkit-scrollbar-thumb {
-    background: rgba(136, 136, 136, 0.8); /* Couleur de la barre de défilement */
-    border-radius: 10px; /* Coins arrondis */
+    background: rgba(136, 136, 136, 0.8);
+    /* Couleur de la barre de défilement */
+    border-radius: 10px;
+    /* Coins arrondis */
 }
 
 #boxzone::-webkit-scrollbar-thumb:hover {
-    background: rgba(85, 85, 85, 0.8); /* Couleur au survol */
+    background: rgba(85, 85, 85, 0.8);
+    /* Couleur au survol */
 }
+
 #boxconf {
     display: flex;
     flex-direction: row;
@@ -152,6 +175,7 @@ nav a {
     border-radius: 6px;
 
 }
+
 #boxnh {
     display: flex;
     flex-direction: row;
@@ -160,6 +184,7 @@ nav a {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
+
 #boxnh input {
     margin-right: 10px;
     width: 80%;
@@ -177,6 +202,7 @@ nav a {
 
 
 }
+
 #resultbox {
     display: flex;
     flex-direction: column;
@@ -195,7 +221,8 @@ nav a {
     margin: 0 5%;
     margin-bottom: 4vh;
 }
-.line{
+
+.line {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -207,10 +234,30 @@ nav a {
     font-weight: bold;
 
 }
+
 .line p {
 
     width: 33%;
     margin: 0 2rem;
 
 
+}
+
+#supprimer {
+
+    width: 4vh;
+    height: 4vh;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 1.2rem;
+    padding: 0.7rem;
+    cursor: pointer;
+    border: 0;
+    box-shadow: black inset  0px 0px 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    padding-bottom: 1.5vh;
 }

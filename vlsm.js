@@ -58,6 +58,7 @@ function correction(adresse) {
     return adresse
 }
 function formatInput(input) {
+
     // Supprimer tous les caractères non numériques et non points
     let value = input.value.replace(/[^\d.]/g, '');
 
@@ -86,8 +87,25 @@ function formatInput(input) {
     if (value.length > 12 && value.charAt(value.length - 1) === '.') {
         value = value.substring(0, value.length - 1);
     }
-    input.value = value;
+
+    // Corriger si une valeur dépasse 255 ou devient inférieure à 0
+    let group = value.split('.');
+    for (let i = 0; i < group.length; i++) {
+        if (group[i] > 255) {
+            group[i] = '255';
+        }
+        if (group[i] < 0) {
+            group[i] = '0';
+        }
+    }
+
+    // Mettre à jour la valeur de l'input avec les groupes corrigés
+    input.value = group.join('.');
+
+
 }
+
+inputcidr.value = '/';
 inputcidr.addEventListener('input', () => {
 
     // Remplacer tous les caractères non numériques ou "/" par une chaîne vide
@@ -115,7 +133,7 @@ sous_reseaux.addEventListener('input', () => {
     }
 
 });
-inputcidr.value = '/';
+
 // fonction qui permet de creer des box pour chaque sous réseau necessaire
 function inputbox() {
     let boxconf = document.createElement('div');
@@ -256,6 +274,12 @@ function resultbox(netadress, mask, first, last, broadcast, cidr, name) {
 para.style.display = 'none';
 
 valider.addEventListener('click', () => {
+    setTimeout(() => {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    }, 100);
     if (validerform) {
         if (adress.value.length === 0 || inputcidr.value.length === 1 || sous_reseaux.value.length === 0) {
             alert('veuillez remplir tous les champs');
@@ -321,13 +345,18 @@ valider.addEventListener('click', () => {
 
 // bouton permettant de valider les informations et de calculer les adresses
 envoyer.addEventListener('click', () => {
-
+    setTimeout(() => {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    }, 880);
     for (let i = 0; i < listbox.length; i++) {
         if (listbox[i].children[0].children[0].children[1].value.length === 0 || listbox[i].children[0].children[1].children[1].value.length === 0) {
             inputvide = true
         }
     }
-    if (inputvide) {
+    if (inputvide || adress.value.split('.').length !== 4 || inputcidr.value.length === 1) {
         alert('veuillez remplir tous les champs');
         inputvide = false
     }
@@ -348,11 +377,10 @@ envoyer.addEventListener('click', () => {
 
         let cidrorigin = document.createElement('p');
         cidrorigin.textContent = 'cidr d\'origine :' + inputcidr.value;
-        setTimeout(() => {
 
-            boxzone.appendChild(adressorigin);
-            boxzone.appendChild(cidrorigin);
-        }, 450);
+        boxzone.appendChild(adressorigin);
+        boxzone.appendChild(cidrorigin);
+
 
         for (let x = 0; x < listbox.length; x++) {
 
