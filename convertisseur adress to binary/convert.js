@@ -38,12 +38,27 @@ function formatInput(input) {
     if (value.length > 12 && value.charAt(value.length - 1) === '.') {
       value = value.substring(0, value.length - 1);
     }
-    input.value = value;
+    let group = value.split('.');
+    for (let i = 0; i < group.length; i++) {
+        if (group[i] > 255) {
+            group[i] = '255';
+        }
+        if (group[i] < 0) {
+            group[i] = '0';
+        }
+    }
+
+    // Mettre à jour la valeur de l'input avec les groupes corrigés
+    input.value = group.join('.');
+
   } else {
 // mettre un point après chaque groupe de 8 chiffres et limiter à 32 caractères
     let value = input.value.replace(/[^\d]/g, '');
+    value = value.replace(/[^01]/g, '');
     value = value.replace(/(\d{8})(?=\d)/g, '$1.');
     value = value.substring(0, 35);
+    // faire en sorte que l'on puisse mettre uniquement des 0 et des 1
+
     input.value = value;
   }
 }
